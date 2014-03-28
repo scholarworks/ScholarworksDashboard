@@ -10,6 +10,6 @@ $data_url = "http://localhost:24091/solr/search/select/?q=*%3A*&version=2.2&star
 // $json_array = json_decode(file_get_contents($data_url),TRUE);
 // print_r($json_array);
 
-$xml = simplexml_load_file('$data_url');
+$xml = simplexml_load_file($data_url);
 
 print_r($xml);
