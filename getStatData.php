@@ -8,8 +8,11 @@ $data_url = "http://localhost:24091/solr/search/select/?q=*:*&wt=json&rows=0&&fa
 // echo file_get_contents($data_url);
 
 $json_array = json_decode(file_get_contents($data_url),TRUE);
-print_r($json_array);
+// print_r($json_array);
 
 echo "--------------- <br /> -------------------- <br /> <br />";
 
-print_r($json_array[facet_counts][facet_fields][type_keyword]);
+// print_r($json_array[facet_counts][facet_fields][type_keyword]);
+$array_for_loop = $json_array[facet_counts][facet_fields][$facet];
+
+print_r($array_for_loop);
