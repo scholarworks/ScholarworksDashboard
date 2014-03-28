@@ -34,16 +34,16 @@ d3.json("getStatData.php?facet=type_keyword", function(error, root) {
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
   node.append("title")
-      .text(function(d) { return d.className + ": " + format(d.value); });
+      .text(function(d) { return d.className + ": " + format(d.name); });
 
   node.append("circle")
-      .attr("r", function(d) { return d.r; })
-      .style("fill", function(d) { return color(d.packageName); });
+      .attr("r", function(d) { return d.count; })
+      .style("fill", function(d) { return color(d.name); });
 
   node.append("text")
       .attr("dy", ".3em")
       .style("text-anchor", "middle")
-      .text(function(d) { return d.className.substring(0, d.r / 3); });
+      .text(function(d) { return d.name; });
 });
 
 // Returns a flattened hierarchy containing all leaf nodes under the root.
