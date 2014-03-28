@@ -15,4 +15,10 @@ echo "--------------- <br /> -------------------- <br /> <br />";
 // print_r($json_array[facet_counts][facet_fields][type_keyword]);
 $array_for_loop = $json_array[facet_counts][facet_fields][$facet];
 
-print_r($array_for_loop);
+// print_r($array_for_loop);
+$array_for_json = array();
+for($i=0; $i<count($array_for_loop); $i+2) {
+	array_push($array_for_json,array("name" => $array_for_loop[$i], "count" => $array_for_loop[$i+1]));
+}
+
+print_r($array_for_json);
