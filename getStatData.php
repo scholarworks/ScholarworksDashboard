@@ -19,7 +19,7 @@ $array_for_loop = $json_array[facet_counts][facet_fields][$facet];
 $array_for_json = array();
 echo "COUNT = " . count($array_for_loop);
 
-for($i=0; $i<count($array_for_loop); $i+2) {
+for($i=0; $i<count($array_for_loop); $i+=2) {
 	$step = $i;
 	$step2 = $i+1;
 	echo $array_for_loop[$step] . " => " . $array_for_loop[$step2] . "<br />";
