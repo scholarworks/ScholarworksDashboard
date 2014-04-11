@@ -9,12 +9,12 @@
 				.data(data)
 				.enter()
 				.append("svg")
-					.attr("width", function(d) { return d.count} )
-					.attr("height", function(d) { return d.count} )
+					.attr("width", function(d) { 25 } )
+					.attr("height", function(d) { 25 } )
 					.append("circle")
 					.attr("cx", 25)
 					.attr("cy", 25)
-					.attr("r", function(d) { return 8})
+					.attr("r", function(d) { return d.count })
 					.style("fill", "purple");
 		}
 
