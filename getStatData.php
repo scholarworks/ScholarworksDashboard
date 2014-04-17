@@ -28,7 +28,7 @@ for($i=0; $i<count($array_for_loop); $i+=2) {
 	$nextLevelDataUrl = "http://localhost:24091/solr/search/select/?q=$facet:\"$name\"&wt=json&rows=0&&facet=true&facet.field=$facet"; // returns JSON formatted facet counts from solr.
 	$nextLevelJsonArray = json_decode(file_get_contents($nextLevelDataUrl),TRUE);
 
-	echo "NAME = $name\n\n";
+	echo "NAME = $name\nURL = $nextLevelDataUrl\n\n";
 	print_r($nextLevelJsonArray);
 	echo "\n\n********************************\n\n";
 	// echo $array_for_loop[$step] . " => " . $array_for_loop[$step2] . "<br />";
