@@ -27,12 +27,25 @@ for($i=0; $i<count($array_for_loop); $i+=2) {
 	
 	$nextLevelDataUrl = "http://localhost:24091/solr/search/select/?q=$facet:\"" . urlencode($name) . "\"&wt=json&rows=0&&facet=true&facet.field=$facet"; // returns JSON formatted facet counts from solr.
 	$nextLevelJsonArray = json_decode(file_get_contents($nextLevelDataUrl),TRUE);
-
-	echo "NAME = $name\nURL = $nextLevelDataUrl\n\n";
-	print_r($nextLevelJsonArray);
-	echo "\n\n********************************\n\n";
-	// echo $array_for_loop[$step] . " => " . $array_for_loop[$step2] . "<br />";
-	array_push($array_for_json,array("name" => $array_for_loop[$step], "count" => $array_for_loop[$step2]));
+	$nextLevelArrayForLoop = $nextLevelJsonArray[facet_counts][facet_fields][$facet];
+	
+	$childrenArray = array();
+	$children = 0;
+	for($j=0; $j<count($nextLevelArrayForLoop); $j+=2) {
+		$levelStep = $j;
+		$levelStep2 = $j+1;
+		$childName = $nextLevelArrayForLoop[$levelStep];
+		$childCount = $nextLevelArrayForLoop[$levelStep2];
+	
+		if($childCount > 0) {
+			$children = 1;
+			array_push($childrenArray,array("name" => $nextLevelArrayForLoop[$levelStep], "size" => $nextLevelArrayForLoop[$levelStep2]));
+		}
+	}
+	
+	if($children) {
+		array_push($array_for_json,array("name" => $name, "children" => $childrenArray));
+	}
 }
 
 echo json_encode($array_for_json);
