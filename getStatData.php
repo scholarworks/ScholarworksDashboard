@@ -29,7 +29,7 @@ for($i=0; $i<count($array_for_loop); $i+=2) {
 	$nextLevelJsonArray = json_decode(file_get_contents($nextLevelDataUrl),TRUE);
 
 	echo "NAME = $name\nURL = $nextLevelDataUrl\n\n";
-	print_r($nextLevelJsonArray);
+	echo $nextLevelJsonArray;
 	echo "\n\n********************************\n\n";
 	// echo $array_for_loop[$step] . " => " . $array_for_loop[$step2] . "<br />";
 	array_push($array_for_json,array("name" => $array_for_loop[$step], "count" => $array_for_loop[$step2]));
