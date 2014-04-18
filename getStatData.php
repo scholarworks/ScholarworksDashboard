@@ -48,5 +48,6 @@ for($i=0; $i<count($array_for_loop); $i+=2) {
 	}
 }
 
-echo json_encode($array_for_json);
+$outputArray = array("name" => "flare", "children" => $array_for_json);
+echo json_encode($outputArray);
 // print_r($array_for_json);
