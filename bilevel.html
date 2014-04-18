@@ -80,6 +80,8 @@ d3.json("http://scholarworks.calstate.edu/dashboard/getStatData.php?facet=subjec
       .on("click", zoomIn);
 
   function zoomIn(p) {
+	  
+	alert(p.name);
     if (p.depth > 1) p = p.parent;
     if (!p.children) return;
     zoom(p, p);
