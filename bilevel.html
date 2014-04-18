@@ -81,7 +81,8 @@ d3.json("http://scholarworks.calstate.edu/dashboard/getStatData.php?facet=subjec
       .each(function(d) { this._current = updateArc(d); })
       .on("click", zoomIn)
   .on("mouseover", function(d) {
-	  alert("Mouse Over");
+	  // alert("Mouse Over");
+	  $("#subject_content".text("Subject: " + d.name);
 	});
 
   function zoomIn(p) {
