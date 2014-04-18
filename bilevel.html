@@ -67,10 +67,7 @@ d3.json("http://scholarworks.calstate.edu/dashboard/getStatData.php?facet=subjec
 
   var center = svg.append("circle")
       .attr("r", radius / 3)
-      .on("click", zoomOut)
-      .on("mouseover", function(d) {
-    	  alert("Mouse Over");
-    	});
+      .on("click", zoomOut);
       
 
   center.append("title")
@@ -82,7 +79,10 @@ d3.json("http://scholarworks.calstate.edu/dashboard/getStatData.php?facet=subjec
       .attr("d", arc)
       .style("fill", function(d) { return d.fill; })
       .each(function(d) { this._current = updateArc(d); })
-      .on("click", zoomIn);
+      .on("click", zoomIn)
+  .on("mouseover", function(d) {
+	  alert("Mouse Over");
+	});
 
   function zoomIn(p) {
 	  
