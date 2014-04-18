@@ -67,7 +67,11 @@ d3.json("http://scholarworks.calstate.edu/dashboard/getStatData.php?facet=subjec
 
   var center = svg.append("circle")
       .attr("r", radius / 3)
-      .on("click", zoomOut);
+      .on("click", zoomOut)
+      .on("mouseover", function(d) {
+    	  alert("Mouse Over");
+    	}));
+      }
 
   center.append("title")
       .text("zoom out");
