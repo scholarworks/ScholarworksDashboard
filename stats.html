@@ -23,6 +23,31 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <!-- ///////////////////////////////////////////////// -->
+    <!-- D3 Visualization Library -->
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    
+    <!--  USING D3 -->
+    <script>
+
+		function draw(data) {
+			d3.select("body")
+				.data(data)
+				.enter()
+				.append("svg")
+					.attr("width", function(d) { 25 } )
+					.attr("height", function(d) { 25 } )
+					.append("circle")
+					.attr("cx", 25)
+					.attr("cy", 25)
+					.attr("r", function(d) { return d.count })
+					.style("fill", "purple");
+		}
+
+	</script>
+    
+    <!-- ///////////////////////////////////////////////// -->
   </head>
 
   <body>
@@ -86,12 +111,18 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Column 1</th>
+                  <th>Community Views</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>1,001</td>
+                  <td>
+<script>
+
+d3.json("getStatData.php?facet=type_keyword",draw);
+
+</script>
+                  </td>
                 </tr>
               </tbody>
             </table>
