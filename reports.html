@@ -25,9 +25,9 @@
 
     	$('#total_views').text(data.total_count);
     	
-    	for (var i in data.months) {
+    	$.each(data.months, function(k, v) { {
     		$('<tr></tr>')
-    			.html('<td>MONTH</td><td></td>')
+    			.html('<td>'+k+'</td><td>'+v+'</td>')
     			.appendTo('#system_stats')
     			.trigger('create');
     	}
