@@ -21,7 +21,7 @@
     
     $.getJSON('http://scholarworks.calstate.edu/portal/api/handle/stats/1234/24234', function(data) {
     	
-    	alert(data);
+    	// alert(data);
     	
     });
     </script>
@@ -58,8 +58,8 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview</a></li>
-            <li><a href="#">Reports</a></li>
+            <li><a href="#">Overview</a></li>
+            <li class="active"><a href="reports.html">Reports</a></li>
             <li><a href="stats.html">Analytics</a></li>
             <li><a href="#">Export</a></li>
           </ul>
@@ -89,12 +89,16 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Community Views</th>
+                  <th>Total Stats</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
+                  	Total Views:
+                  </td>
+                  <td>
+                  	0
                   </td>
                 </tr>
               </tbody>
