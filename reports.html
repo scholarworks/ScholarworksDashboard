@@ -21,7 +21,7 @@
     
     $.getJSON('http://scholarworks.calstate.edu/portal/api/handle/stats/1234/24234', function(data) {
     	
-    	// alert(data);
+    	alert(data.total_count);
     	$('#total_views').text(data.total_count);
     });
     </script>
