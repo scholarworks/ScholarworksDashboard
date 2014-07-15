@@ -22,9 +22,15 @@
     $.getJSON('http://scholarworks.calstate.edu/portal/api/handle/stats/1234/24234', function(data) {
     	
     	data = $.parseJSON(data);
-    	alert(data);
-    	alert(data.total_count);
+
     	$('#total_views').text(data.total_count);
+    	
+    	for (var i in data.months) {
+    		$('<tr></tr>')
+    			.html('<td>MONTH</td><td></td>')
+    			.appendTo('#system_stats')
+    			.trigger('create');
+    	}
     });
     </script>
   </head>
@@ -88,7 +94,7 @@
 		<!--  SYSTEMWIDE STATS BLOCK -->
           <h2 class="sub-header">Systemwide Statistics</h2>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped"  id="system_stats">
               <thead>
                 <tr>
                   <th colspan="2">Total Stats</th>
