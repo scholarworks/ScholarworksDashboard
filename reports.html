@@ -23,7 +23,6 @@
     	
     	data = $.parseJSON(data);
 
-    	$('#total_views').text(data.total_count);
     	
     	$.each(data.months, function(k, v)  {
     		$('<tr></tr>')
@@ -31,6 +30,12 @@
     			.appendTo('#system_stats')
     			.trigger('create');
     	});
+    	
+    	$('<tr></tr>')
+			.html('<td>Total Views</td><td>'+data.total_count+'</td>'')
+    		.appendTo('#system_stats')
+    		.trigger('create');
+
     });
     </script>
   </head>
@@ -101,13 +106,6 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                  	Total Views:
-                  </td>
-                  <td id="total_views">
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
