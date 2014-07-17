@@ -37,6 +37,16 @@
     		.trigger('create');
 
     });
+    
+    $.getJSON('campus_list.json', function(data){
+    	$.each(data.campus, function(k,v){
+        	$('<tr></tr>')
+			.html('<td><strong>'+v+</strong></td>'</strong></td>')
+    		.appendTo('#campus_stats')
+    		.trigger('create');
+    		
+    	});
+    });
     </script>
   </head>
 
@@ -117,7 +127,7 @@
 		<!--  CAMPUS STATS BLOCK -->
           <h2 class="sub-header">Systemwide Statistics</h2>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped" id="campus_stats">
               <thead>
                 <tr>
                   <th>Community Views</th>
