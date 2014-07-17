@@ -43,7 +43,7 @@
         	$.getJSON('http://scholarworks.calstate.edu/portal/api/handle/stats/owningComm/'+item.id, function(data2) {
         		data2 = $.parseJSON(data2);
 	        	$('<tr></tr>')
-					.html('<td><strong>'+item.label+'</strong></td><td>'+data2.total_count+'</td><td>'+data2.view_count+'</td><td>'+data2.search_count+'</td><td>'+data2.searchResult_count+'</td>')
+					.html('<td><strong>'+item.label+'</strong></td><td>'+data2.total_count+'</td><td>'+data2.view_count+'</td><td>'+data2.searchResult_count+'</td>')
     				.appendTo('#campus_stats')
     				.trigger('create');
         	});
@@ -136,7 +136,6 @@
                   <th>Total Views</th>
                   <th>Total Item Views</th>
                   <th>Searches</th>
-                  <th>Search Result Clicks</th>
                 </tr>
               </thead>
               <tbody>
