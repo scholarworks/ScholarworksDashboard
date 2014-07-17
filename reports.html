@@ -39,7 +39,7 @@
     });
     
     $.getJSON('campus_list.json', function(data){
-    	$.each(data, function(i, item){
+    	$.each(data.campus, function(i, item){
         	$('<tr></tr>')
 			.html('<td><strong>'+item.label+'</strong></td>')
     		.appendTo('#campus_stats')
