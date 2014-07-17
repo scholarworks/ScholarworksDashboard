@@ -26,6 +26,9 @@
     
     var id = getURLParameter('id');
     var campus = getURLParameter('campus');
+    
+    alert(campus);
+    
     $("#campus_header").text(campus + ' Statistics Report');
     
     $.getJSON('http://scholarworks.calstate.edu/portal/api/handle/stats/owningComm/'+id, function(data) {
