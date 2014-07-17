@@ -39,9 +39,9 @@
     });
     
     $.getJSON('campus_list.json', function(data){
-    	$.each(data.campus, function(k,v){
+    	$.each(data, function(i, item){
         	$('<tr></tr>')
-			.html('<td><strong>'+v+'</strong></td>')
+			.html('<td><strong>'+item.label+'</strong></td>')
     		.appendTo('#campus_stats')
     		.trigger('create');
     		
