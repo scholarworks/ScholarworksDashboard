@@ -41,7 +41,7 @@
     $.getJSON('campus_list.json', function(data){
     	$.each(data.campus, function(k,v){
         	$('<tr></tr>')
-			.html('<td><strong>'+v+</strong></td>'</strong></td>')
+			.html('<td><strong>'+v+'</strong></td>')
     		.appendTo('#campus_stats')
     		.trigger('create');
     		
