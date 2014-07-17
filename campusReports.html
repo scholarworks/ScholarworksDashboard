@@ -25,6 +25,8 @@
     
     
     var id = getURLParameter('id');
+    var campus = getURLParameter('campus');
+    $("#campus_header").text(campus + ' Statistics Report');
     
     $.getJSON('http://scholarworks.calstate.edu/portal/api/handle/stats/owningComm/'+id, function(data) {
     	
@@ -98,14 +100,14 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Scholarworks Statistics Reports</h1>
+          <h1 class="page-header" id="campus_header"></h1>
 
           <div class="row placeholders">
           	<!--  NOTHING HERE FOR NOW -->
           </div>
 
 		<!--  SYSTEMWIDE STATS BLOCK -->
-          <h2 class="sub-header">Systemwide Statistics</h2>
+          <h2 class="sub-header">Scholarworks Statistics</h2>
           <div class="table-responsive">
             <table class="table table-striped"  id="system_stats">
               <thead>
@@ -122,24 +124,6 @@
           </div>
 		<!--  END SYSTEMWIDE STATS BLOCK -->
 		
-		<!--  CAMPUS STATS BLOCK -->
-          <h2 class="sub-header">Systemwide Statistics</h2>
-          <div class="table-responsive">
-            <table class="table table-striped" id="campus_stats">
-              <thead>
-                <tr>
-                  <th>Campus</th>
-                  <th>Total Views</th>
-                  <th>Total Item Views</th>
-                  <th>Searches</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
-		<!--  END CAMPUS STATS BLOCK -->
-
         </div>
       </div>
     </div>
