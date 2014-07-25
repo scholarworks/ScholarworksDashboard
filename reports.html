@@ -41,8 +41,8 @@
     $.getJSON('campus_list.json', function(data){
     	$.each(data.campus, function(i, item){
         	$.getJSON('http://scholarworks.calstate.edu/portal/api/handle/stats/owningComm/'+item.id, function(data2) {
-        		data2 = $.parseJSON(data2);
         		alert(data2);
+        		data2 = $.parseJSON(data2);
 	        	$('<tr></tr>')
 					.html('<td><strong><a href="campusReports.html?id='+item.id+'&campus='+item.label+'">'+item.label+'</a></strong></td><td>'+data2.total_count+'</td><td>'+data2.view_count+'</td><td>'+data2.searchResult_count+'</td><td>'+data2.bitstream_views+'</td>')
     				.appendTo('#campus_stats')
