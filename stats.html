@@ -197,6 +197,9 @@ pieChartData["misc"] = 	{
 	};
 pieChartData["callbacks"] = {
 		onClickSegment: function(info) {console.log(info.data.label);}
+		onMouseOverSegment: function(info) {
+			$("#hoverInfo").text(info.data.label);
+		}
 	};	
 console.log(pieChartData);
 
@@ -213,13 +216,10 @@ function loadPieChart(pieChartDataIn) {
 	var pie = new d3pie("pieChart", pieChartDataIn);
 }
 
-function pieChartClicked(data) {
-	console.log(data);
-	alert(data.label);
-}
 
 </script>
                   </td>
+                  <td id="hoverInfo"></td>
                 </tr>
               </tbody>
             </table>
