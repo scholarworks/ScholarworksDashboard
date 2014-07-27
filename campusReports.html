@@ -38,7 +38,7 @@
     	
     	$.each(data.months, function(k, v)  {
     		$('<tr></tr>')
-    			.html('<td>'+k+'</td><td>'+v.views+'</td><td>'+v.searches+'</td><td>'+v.search_results+'</td>')
+    			.html('<td>'+k+'</td><td>'+v.views+'</td><td>'+v.searches+'</td><td>'+v.search_results+'</td><td>'+v.bitstream_views+'</td>')
     			.appendTo('#system_stats')
     			.trigger('create');
     	});
@@ -119,6 +119,7 @@
                   <th>Total Item Views</th>
                   <th>Searches</th>
                   <th>Search Result Clicks</th>
+                  <th>Bitstreams Viewed</th>
                 </tr>
               </thead>
               <tbody>
