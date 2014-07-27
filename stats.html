@@ -333,7 +333,8 @@ console.log(pieChartData);
 $.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/type_keyword', function(data) {
 	data = $.parseJSON(data);
 	$.each(data, function(i, item){
-		alert(i + " = " + item.name + ": " + item.size);
+		// alert(i + " = " + item.name + ": " + item.size);
+		pieChartData["data"]["content"].push([{"label": item.name, "value": item.size, "color": "#e4a14b"}]);
 	});
 });
 	
