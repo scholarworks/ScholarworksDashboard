@@ -44,7 +44,7 @@
         		alert(data2);
         		data2 = $.parseJSON(data2);
 	        	$('<tr></tr>')
-					.html('<td><strong><a href="campusReports.html?id='+item.id+'&campus='+item.label+'">'+item.label+'</a></strong></td><td>'+data2.total_count+'</td><td>'+data2.view_count+'</td><td>'+data2.searchResult_count+'</td><td>'+data2.bitstream_views+'</td>')
+					.html('<td><strong><a href="campusReports.html?id='+item.id+'&campus='+item.label+'">'+item.label+'</a></strong></td><td>'+data2.total_count+'</td><td>'+data2.view_count+'</td><td>'+data2.searchResult_count+'</td><td>'+data2.bitstream_count+'</td>')
     				.appendTo('#campus_stats')
     				.trigger('create');
         	});
