@@ -152,6 +152,12 @@ pieChartData["size"] = {
 pieChartData["data"] = {
 		"sortOrder": "value-desc"
 };
+pieChartData["data"]["smallSegmentGrouping"]: {
+	enabled: true,
+	value: 5,
+	valueType: "percentage",
+	label: "< 5% of items"
+};
 pieChartData["data"]["content"] = [];
 pieChartData["labels"] = {
 		"outer": {
@@ -189,13 +195,6 @@ pieChartData["misc"] = 	{
 			"percentage": 100
 		}
 	};
-pieChartData["smallSegmentGrouping"] = {
-		"enabled": true,
-		"value": "10%",
-		"valueType": "percentage",
-		"label":  "< 20 items",
-		"color": "#aaa"
-};
 pieChartData["callbacks"] = {
 		onClickSegment: function(info) {console.log(info.data.label);}
 	};	
