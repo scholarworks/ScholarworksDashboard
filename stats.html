@@ -127,7 +127,7 @@
 var pieChartData = {};
 pieChartData["header"] = {
 		"title": {
-			"text": "Lots of Programming Languages",
+			"text": "ScholarWorks Facet Counts for Type",
 			"fontSize": 24,
 			"font": "open sans"
 		},
@@ -188,7 +188,9 @@ pieChartData["misc"] = 	{
 			"percentage": 100
 		}
 	};
-	
+pieChartData["callbacks"] = {
+		onClickSegment: pieChartClicked
+	};	
 console.log(pieChartData);
 
 $.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/type_keyword', function(data) {
@@ -202,6 +204,10 @@ $.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/type_keyword',
 
 function loadPieChart(pieChartDataIn) {
 	var pie = new d3pie("pieChart", pieChartDataIn);
+}
+
+function pieChartClicked(data) {
+	alert("here");
 }
 
 </script>
