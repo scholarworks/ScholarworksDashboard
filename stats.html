@@ -119,10 +119,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 65%; align: center;">
-
-<div id="pieChart"></div>
-
+                  <td style="width: 50%; align: center;">
+						<div id="pieChart"></div>
+				  </td>
+                  <td style="width: 50%; align: center;">
+						<div id="pieChart2"></div>
+				  </td>
 <script>
 
 var pieChartData = {};
@@ -210,17 +212,26 @@ $.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/type_keyword',
 		// alert(i + " = " + item.name + ": " + item.size);
 		pieChartData["data"]["content"].push({"label": item.name, "value": item.size, "color": "#e4a14b"});
 	});
-	loadPieChart(pieChartData);
+	loadPieChart("pieChart",pieChartData);
 });
 
-function loadPieChart(pieChartDataIn) {
-	var pie = new d3pie("pieChart", pieChartDataIn);
+$.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/subject_keyword', function(data) {
+	data = $.parseJSON(data);
+	$.each(data, function(i, item){
+		// alert(i + " = " + item.name + ": " + item.size);
+		pieChartData["data"]["content"].push({"label": item.name, "value": item.size, "color": "#e4a14b"});
+	});
+	loadPieChart("pieChart2",pieChartData);
+});
+
+function loadPieChart(pieChartId,pieChartDataIn) {
+	var pie = new d3pie(pieChartId, pieChartDataIn);
 }
 
 
 </script>
                   </td>
-                  <td id="hoverInfo"></td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
