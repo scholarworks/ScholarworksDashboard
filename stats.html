@@ -292,7 +292,8 @@ $.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/subject_keywor
 	data = $.parseJSON(data);
 	$.each(data, function(i, item){
 		// alert(i + " = " + item.name + ": " + item.size);
-		pieChartData2["data"]["content"].push({"label": item.name, "value": item.size, "color": "#e4a14b"});
+    	var hue = 'rgb(' + (Math.floor((256-199)*Math.random()) + 200) + ',' + (Math.floor((256-199)*Math.random()) + 200) + ',' + (Math.floor((256-199)*Math.random()) + 200) + ')';
+		pieChartData2["data"]["content"].push({"label": item.name, "value": item.size, "color": hue});
 	});
 	loadPieChart("pieChart2",pieChartData2);
 });
