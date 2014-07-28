@@ -204,7 +204,6 @@ pieChartData["callbacks"] = {
 			$("#hoverInfo").text(info.data.label);
 		}
 	};	
-console.log(pieChartData);
 
 $.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/type_keyword', function(data) {
 	data = $.parseJSON(data);
@@ -215,14 +214,91 @@ $.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/type_keyword',
 	loadPieChart("pieChart",pieChartData);
 });
 
+var pieChartData2 = {};
+pieChartData2["header"] = {
+		"title": {
+			"text": "ScholarWorks Facet Counts for Subject",
+			"fontSize": 24,
+			"font": "open sans"
+		},
+		"subtitle": {
+			"text": "A full pie chart to show off label collision detection and resolution.",
+			"color": "#999999",
+			"fontSize": 12,
+			"font": "open sans"
+		},
+		"titleSubtitlePadding": 9
+	};
+pieChartData2["footer"] = {
+		"color": "#999999",
+		"fontSize": 10,
+		"font": "open sans",
+		"location": "bottom-left"
+	};
+pieChartData2["size"] = {
+		"canvasWidth": 500,
+		"canvasHeight": 500
+};
+pieChartData2["data"] = {
+		"sortOrder": "value-desc"
+};
+pieChartData2["data"]["smallSegmentGrouping"] = {
+	enabled: true,
+	value: 3,
+	valueType: "percentage",
+	label: "< 3% of items"
+};
+pieChartData2["data"]["content"] = [];
+pieChartData2["labels"] = {
+		"outer": {
+			"pieDistance": 32
+		},
+		"inner": {
+			"hideWhenLessThanPercentage": 5
+		},
+		"mainLabel": {
+			"fontSize": 11
+		},
+		"percentage": {
+			"color": "#ffffff",
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#adadad",
+			"fontSize": 11
+		},
+		"lines": {
+			"enabled": true
+		}
+	};
+
+pieChartData2["effects"] = {
+		"pullOutSegmentOnClick": {
+			"effect": "linear",
+			"speed": 400,
+			"size": 8
+		}
+	};
+pieChartData2["misc"] = 	{
+		"gradient": {
+			"enabled": true,
+			"percentage": 100
+		}
+	};
+pieChartData2["callbacks"] = {
+		onClickSegment: function(info) {console.log(info.data.label);},
+		onMouseoverSegment: function(info) {
+			$("#hoverInfo").text(info.data.label);
+		}
+	};	
+
 $.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/subject_keyword', function(data) {
 	data = $.parseJSON(data);
-	pieChartData["data"]["content"] = [];
 	$.each(data, function(i, item){
 		// alert(i + " = " + item.name + ": " + item.size);
-		pieChartData["data"]["content"].push({"label": item.name, "value": item.size, "color": "#e4a14b"});
+		pieChartData2["data"]["content"].push({"label": item.name, "value": item.size, "color": "#e4a14b"});
 	});
-	loadPieChart("pieChart2",pieChartData);
+	loadPieChart("pieChart2",pieChartData2);
 });
 
 function loadPieChart(pieChartId,pieChartDataIn) {
