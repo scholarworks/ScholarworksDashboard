@@ -260,7 +260,7 @@ pieChartData2["callbacks"] = {
 		}
 	};	
 
-$.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/subject_keyword', function(data) {
+$.getJSON('http://scholarworks.calstate.edu/portal/api/facet/json/program_keyword', function(data) {
 	data = $.parseJSON(data);
 	$.each(data, function(i, item){
 		// alert(i + " = " + item.name + ": " + item.size);
