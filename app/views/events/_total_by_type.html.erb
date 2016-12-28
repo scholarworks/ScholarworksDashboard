@@ -1,0 +1,5 @@
+<div class="huge">
+  <% total_by_type.keys.each do |event_group| %>
+    <%= event_group[0] %> - <%= event_group[1] %> - <%= total_by_type[event_group].count %><br />
+  <% end %>
+</div>

@@ -1,0 +1,5 @@
+<strong><%= @community.name %></strong><br /><br >
+
+<% @community.collections.each do |collection| %>
+<%= collection.name %><br />
+<% end %>

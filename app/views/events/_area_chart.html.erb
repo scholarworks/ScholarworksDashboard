@@ -1,0 +1,22 @@
+<script>
+$(function() {
+  Morris.Area({
+       element: 'morris-area-chart',
+       data: [
+         <% total_by_date.keys.each do |event_group| %>
+         {
+           date: '<%= event_group[0] %>',
+           <% total_by_date[event_group].group_by(&:event_type).each do |event_type, events| %>
+             <%= event_type %>: <%= events.count %>,
+             <% end %>
+       },
+     <% end %>],
+       xkey: 'date',
+       ykeys: ['view_item', 'view_bitstream', 'view_collection', 'view_community', 'workflow_item'],
+       labels: ['Item Views', 'Bitstream Views', 'Collection Views', 'Community Views', 'Workflow items'],
+       pointSize: 2,
+       hideHover: 'auto',
+       resize: true
+   });
+});
+</script>

@@ -1,0 +1,10 @@
+<h1>DSpace Communities</h1>
+
+<% @communities.each do |community| %>
+  <% if community.parent_id.nil? %>
+    <%= link_to community.name, community_path(community) %><br />
+    <ul>
+      <%= render community.subcommunities %>
+    </ul>
+  <% end %>
+<% end %>

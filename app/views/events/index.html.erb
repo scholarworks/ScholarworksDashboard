@@ -1,0 +1,13 @@
+<h1>DSpace Communities</h1>
+
+<% @events.each do |event| %>
+<%= link_to event[0], community_path(event) %> - <%= event[1].count %><br />
+<% end %>
+
+<% @dates.each do |date| %>
+<%= link_to date, event_path(date) %><br />
+<% end %>
+
+<% @ip_addresses.each do |ip_addr| %>
+<%= ip_addr %><br />
+<% end %>

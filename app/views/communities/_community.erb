@@ -1,0 +1,13 @@
+<li><%= link_to community.name, community_path(community) %></li>
+<% if community.subcommunities.any? %>
+  <ul>
+    <%= render community.subcommunities %>
+  </ul>
+<% end %>
+
+<% if community.collections.any? %>
+Collections<br />
+<ul>
+  <%= render community.collections %>
+</ul>
+<% end %>
