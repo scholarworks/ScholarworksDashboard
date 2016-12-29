@@ -203,8 +203,9 @@ namespace :load do
     end
   end
 
-  task :bots, [:file] => [:environment] do |t, args|
+  task :bots, [:file,:logfile] => [:environment] do |t, args|
     puts "Loading Bots..."
+    log_file = File.open(args[:logfile], 'w')
     @source_file = args[:file] or raise "No source input file provided."
     File.open(@source_file).each do |line|
       line = line.strip
@@ -216,14 +217,37 @@ namespace :load do
         for i in 0..255
           # puts "Class C: " + line + "." + i.to_s
           ip_addr = line + "." + i.to_s
-          bot = Bot.new(ip_addr: ip_addr)
-          bot.save
+          bot = Bot.find_by(ip_addr: ip_addr)
+          if bot.nil?
+            # create a new bot - write to log file
+            bot = Bot.new(ip_addr: ip_addr)
+            bot.save
+            # find all existing events with this bot as the ip_addr and update isbot
+            events = Event.where(ip_addr: ip_addr)
+            log_file.write("#{ip_addr}, #{events.count}\n")
+            events.each do |event|
+              event.isbot = TRUE
+              event.save
+            end
+          end
         end
       else
-        bot = Bot.new(ip_addr: line)
-        bot.save
+        bot = Bot.find_by(ip_addr: line)
+        if bot.nil?
+          # create a new bot - write to log file
+          bot = Bot.new(ip_addr: line)
+          bot.save
+          # find all existing events with this bot as the ip_addr and update isbot
+          events = Event.where(ip_addr: line)
+          log_file.write("#{line}, #{events.count}\n")
+          events.each do |event|
+            event.isbot = TRUE
+            event.save
+          end
+        end
       end
     end
+    log_file.close
   end
 
 end
